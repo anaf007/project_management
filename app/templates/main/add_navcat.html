@@ -1,0 +1,67 @@
+{% import "bootstrap/wtf.html" as wtf %} 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>南宁200元建站18977771077</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/navbar.css')}}" rel="stylesheet">
+
+    <script src="{{url_for('static',filename='js/ie-emulation-modes-warning.js')}}"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">软件服务</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">200元建站</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">主页</a></li>
+              <li class="active"><a href="#">选好项目后，将项目编号告知18977771077（电话微信QQ同号）。</a></li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li> -->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+      {%for message in get_flashed_messages()%}
+      <div class="alert alert-success" role="alert">
+        {{message}} 
+      </div>
+      {%endfor%}
+      {{ wtf.quick_form(form) }}
+      
+        
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

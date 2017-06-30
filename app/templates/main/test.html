@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>
+
+  </title>
+</head>
+<body>
+  最简单的方法
+<input type="file" name="file" onchange="pic.src=this.value"/><br>
+这个写了很多代码啊
+<input type="file" name="file" id="up"  onchange="shuo()"/><br>
+<script>
+//IE 
+function shuo()
+{
+var upstr="";//文件路径
+var flex = ""; //上传文件扩展名
+var Filelx = ".gif,.jpg,.jpeg,.png,.bmp";//可上传文件类型 
+ if(up.value!="")
+ {
+  upstr = up.value;
+  fiex = upstr.replace(upstr.substring(0,upstr.lastIndexOf("."),""));//得到文件扩展名
+  fiex = fiex.replace("undefined","");
+  if(Filelx.lastIndexOf(fiex)!=-1)
+  {
+   pic.src = upstr;//ID
+   tt.innerHTML = "";
+  }
+  else
+  {
+   //IE
+   
+   pic.src = "";
+   tt.innerHTML="<font color=red style='font-size:9pt;'>* 所选文件不支持上传 </font>"
+   
+  }
+  
+  
+ }
+}
+</script>
+<img id="pic" />
+<span id="tt"/>
+</body>
+</html>
