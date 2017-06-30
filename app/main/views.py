@@ -107,4 +107,12 @@ def add_navcat_post():
 	return redirect(url_for('.add_navcat'))
 
 
+@main.route('/show/<int:id>')
+def show(id):
+	page = Page_system.query.get_or_404(id)
+	page.view +=1
+	db.session.add(page)
+	db.session.commit()
+	return redirect(page.url)
+
 
