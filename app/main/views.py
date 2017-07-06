@@ -16,7 +16,8 @@ except Exception, e:
 @main.route('/')
 @main.route('/200')
 def index():
-	page = Page_system.query.order_by(Page_system.view.desc()).all()
+	page = request.args.get('page', 1, type=int)
+	page = Page_system.query.order_by(Page_system.view.desc()).paginate(page,12,error_out=False)
 	return render_template('main/index.html',page=page)
 
 #添加服务器

@@ -53,7 +53,7 @@
         <div class="row">
                 <div id="isotope-gallery-container">
 
-          {%for i in page%}
+          {%for i in page.items%}
 					<div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper nature outside">
                         <div class="gallery-item">
                             <div class="gallery-thumb">
@@ -80,7 +80,33 @@
 
 
                 </div>
+
+
         </div>
+        <ul class="pagination">
+        <li{% if not page.has_prev %} class="disabled"{% endif %}>
+          <a href="{% if page.has_prev %}{{ url_for('main.index',
+page = page.page - 1) }}{% else %}#{% endif %}">&laquo;</a></li>
+
+{% for p in page.iter_pages() %}
+{%if p%}
+{% if p == page.page %} 
+<li class="active">
+<a href="{{ url_for('main.index', page = p) }}">{{ p }}</a>
+</li>
+{% else %} <li>
+<a href="{{ url_for('main.index', page = p) }}">{{ p }}</a>
+</li>
+{% endif %} {% else %}
+<li class="disabled"><a href="#">&hellip;</a></li>
+{% endif %} {% endfor %}
+
+
+
+        <li{% if not page.has_next %} class="disabled"{% endif %}>
+        <a href="{% if page.has_next %}{{ url_for('main.index',
+page = page.page + 1) }}{% else %}#{% endif %}">&raquo;</a></li>
+        </ul>
       </div>
 
     </div> <!-- /container -->
